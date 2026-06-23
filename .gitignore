@@ -1,0 +1,63 @@
+# Xcode
+build/
+DerivedData/
+*.xcodeuserstate
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.xcuserdatad
+*.xcworkspace/xcuserdata/
+xcuserdata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Packages/
+Package.resolved
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Claude
+.claude/
+
+# Cursor
+.cursor/
+
+# XcodeBuildMCP
+.xcodebuildmcp/
+
+# Node modules
+node_modules/
+
+# Cloudflare
+Backend/cloudflare/.wrangler/
+Backend/cloudflare/node_modules/
+
+# Large binary files
+*.node
+*.dylib
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

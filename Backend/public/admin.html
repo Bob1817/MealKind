@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MealKind Super Admin</title>
+    <link rel="stylesheet" href="/assets/admin.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brandMark">MK</div>
+          <div>
+            <strong>MealKind</strong>
+            <span>Super Admin</span>
+          </div>
+        </div>
+        <nav>
+          <a href="#dashboard">总览</a>
+          <a href="#users">用户</a>
+          <a href="#plans">方案</a>
+          <a href="#subscriptions">订阅</a>
+          <a href="#models">AI 模型</a>
+          <a href="#ops">日志与问题</a>
+          <a href="#notifications">通知</a>
+          <a href="#settings">系统设置</a>
+        </nav>
+        <p class="hint">生产后台已启用 Cloudflare Secret 密码。请使用当前管理员凭据登录。</p>
+      </aside>
+
+      <section class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Super Admin Console</p>
+            <h1>轻减 AI 后台管理</h1>
+            <p id="statusText" class="statusText"></p>
+          </div>
+          <button id="logoutButton" class="ghost hidden">退出</button>
+        </header>
+
+        <section id="loginPanel" class="panel loginPanel">
+          <h2>超管登录</h2>
+          <p>登录后可查看运营数据、管理方案、检查 AI 分析日志。</p>
+          <div class="formGrid">
+            <label>
+              账号
+              <input id="usernameInput" value="admin" autocomplete="username" />
+            </label>
+            <label>
+              密码
+              <input id="passwordInput" type="password" autocomplete="current-password" />
+            </label>
+          </div>
+          <button id="loginButton" class="primary">进入后台</button>
+          <p id="loginError" class="error"></p>
+        </section>
+
+        <section id="adminApp" class="hidden">
+          <section id="dashboard" class="grid statsGrid"></section>
+
+          <section id="users" class="panel">
+            <div class="sectionHead">
+              <div>
+                <p class="eyebrow">Users</p>
+                <h2>用户管理</h2>
+              </div>
+              <button id="refreshButton" class="ghost">刷新</button>
+            </div>
+            <div class="tableWrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>用户</th>
+                    <th>语言</th>
+                    <th>方案</th>
+                    <th>模式</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTable"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="plans" class="panel">
+            <div class="sectionHead">
+              <div>
+                <p class="eyebrow">Plans</p>
+                <h2>减脂方案与规则引擎</h2>
+              </div>
+              <button id="savePlansButton" class="primary small">保存方案</button>
+            </div>
+            <textarea id="plansEditor" spellcheck="false"></textarea>
+          </section>
+
+          <section id="subscriptions" class="panel">
+            <div class="sectionHead">
+              <div>
+                <p class="eyebrow">Subscriptions</p>
+                <h2>App 订阅与价格</h2>
+              </div>
+              <button id="saveSubscriptionsButton" class="primary small">保存订阅</button>
+            </div>
+            <textarea id="subscriptionsEditor" spellcheck="false"></textarea>
+          </section>
+
+          <section id="models" class="panel">
+            <div class="sectionHead">
+              <div>
+                <p class="eyebrow">AI Models</p>
+                <h2>项目内置 AI 模型配置</h2>
+              </div>
+              <button id="saveModelsButton" class="primary small">保存模型</button>
+            </div>
+            <textarea id="modelsEditor" spellcheck="false"></textarea>
+          </section>
+
+          <section id="ops" class="grid twoColumn">
+            <div class="panel">
+              <div class="sectionHead">
+                <div>
+                  <p class="eyebrow">AI Logs</p>
+                  <h2>AI 分析日志</h2>
+                </div>
+                <button id="testAnalysisButton" class="ghost">生成测试分析</button>
+              </div>
+              <div id="logsList" class="logs"></div>
+            </div>
+
+            <div class="panel">
+              <div class="sectionHead">
+                <div>
+                  <p class="eyebrow">Issues</p>
+                  <h2>问题查询与处理</h2>
+                </div>
+                <button id="createIssueButton" class="ghost">新增问题</button>
+              </div>
+              <div id="issuesList" class="logs"></div>
+            </div>
+          </section>
+
+          <section id="notifications" class="panel">
+            <div class="sectionHead">
+              <div>
+                <p class="eyebrow">Notifications</p>
+                <h2>通知与公告</h2>
+              </div>
+              <button id="createNotificationButton" class="ghost">新增通知</button>
+            </div>
+            <div id="notificationsList" class="logs"></div>
+          </section>
+
+          <section id="settings" class="panel">
+            <div class="sectionHead">
+              <div>
+                <p class="eyebrow">System</p>
+                <h2>系统设置</h2>
+              </div>
+              <button id="saveSettingsButton" class="primary small">保存设置</button>
+            </div>
+            <textarea id="settingsEditor" spellcheck="false"></textarea>
+          </section>
+
+          <section class="panel">
+            <div class="sectionHead">
+              <div>
+                <p class="eyebrow">System Logs</p>
+                <h2>系统日志</h2>
+              </div>
+            </div>
+            <div id="systemLogsList" class="logs"></div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="/assets/admin.js"></script>
+  </body>
+</html>

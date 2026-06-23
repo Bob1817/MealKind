@@ -1,0 +1,52 @@
+name: MealKind
+options:
+  bundleIdPrefix: com.mealkind
+  deploymentTarget:
+    iOS: "17.0"
+settings:
+  base:
+    DEVELOPMENT_TEAM: ZWL8VGX75W
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    # Build the app as a single self-contained binary instead of Xcode's
+    # "debug dylib" shim. The shim only launches correctly from inside Xcode;
+    # launched standalone (tapped on device / pushed via devicectl) it aborts
+    # in libxpc's _xpc_init_pid_domain before main() on this device, because
+    # the device runs an iOS version newer than the installed Xcode SDK.
+    ENABLE_DEBUG_DYLIB: NO
+targets:
+  MealKind:
+    type: application
+    platform: iOS
+    sources:
+      - path: MealKind
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mealkind.app
+        INFOPLIST_KEY_CFBundleDisplayName: MealKind
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+    info:
+      path: MealKind/Info.plist
+      properties:
+        CFBundleDisplayName: MealKind
+        NSCameraUsageDescription: MealKind uses the camera to analyze meals and give plan-based eating suggestions.
+        NSPhotoLibraryUsageDescription: MealKind can read selected meal photos to analyze food and save records.
+        FoodAnalysisEndpoint: https://mefitai.fit/api/ai/food-analysis
+        PersistenceEndpoint: https://mefitai.fit/
+        UIRequiresFullScreen: true
+        UILaunchScreen: {}
+  MealKindTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: MealKindTests
+    dependencies:
+      - target: MealKind
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mealkind.app.tests
+        GENERATE_INFOPLIST_FILE: YES

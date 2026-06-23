@@ -1,0 +1,223 @@
+{
+  "users": [
+    {
+      "id": "usr_demo_001",
+      "name": "Maya",
+      "email": "maya@example.com",
+      "locale": "zh-Hans",
+      "plan": "531 Carb Step-down",
+      "mode": "lifestyle",
+      "status": "active",
+      "subscription": "pro_monthly",
+      "registeredAt": "2026-06-16T00:00:00Z",
+      "deletedAt": null,
+      "deleteReason": null,
+      "createdAt": "2026-06-16T00:00:00Z",
+      "lastSeenAt": "2026-06-16T08:00:00Z"
+    }
+  ],
+  "plans": [
+    {
+      "id": "lifestyleCut",
+      "name": "Lifestyle Cut",
+      "nameZh": "生活化减脂",
+      "dailyDeficit": 450,
+      "engine": {
+        "bmrFormula": "mifflin_st_jeor",
+        "activityMultiplierMin": 1.2,
+        "activityMultiplierMax": 1.55,
+        "safetyFloorCalories": 1200,
+        "targetDeficitTolerance": 120
+      },
+      "macroRules": {
+        "proteinPerKg": 1.5,
+        "fatRatio": 0.28,
+        "carbFloorGrams": 80
+      },
+      "guardrails": [
+        "Prioritize protein",
+        "Keep dinner light",
+        "Save leftovers if full"
+      ],
+      "difficulty": 1,
+      "enabled": true
+    },
+    {
+      "id": "carbStepDown",
+      "name": "531 Carb Step-down",
+      "nameZh": "531 碳水渐降",
+      "dailyDeficit": 520,
+      "engine": {
+        "bmrFormula": "mifflin_st_jeor",
+        "activityMultiplierMin": 1.18,
+        "activityMultiplierMax": 1.5,
+        "safetyFloorCalories": 1200,
+        "targetDeficitTolerance": 120
+      },
+      "macroRules": {
+        "proteinPerKg": 1.7,
+        "fatRatio": 0.32,
+        "carbFloorGrams": 70
+      },
+      "guardrails": [
+        "Protein first",
+        "Half rice at dinner",
+        "Keep sauces light"
+      ],
+      "difficulty": 3,
+      "enabled": true
+    },
+    {
+      "id": "highProtein",
+      "name": "High Protein",
+      "nameZh": "高蛋白控热量",
+      "dailyDeficit": 400,
+      "engine": {
+        "bmrFormula": "mifflin_st_jeor",
+        "activityMultiplierMin": 1.22,
+        "activityMultiplierMax": 1.65,
+        "safetyFloorCalories": 1200,
+        "targetDeficitTolerance": 120
+      },
+      "macroRules": {
+        "proteinPerKg": 1.9,
+        "fatRatio": 0.27,
+        "carbFloorGrams": 90
+      },
+      "guardrails": [
+        "Finish protein",
+        "Add vegetables",
+        "Keep snacks simple"
+      ],
+      "difficulty": 2,
+      "enabled": true
+    }
+  ],
+  "subscriptions": [
+    {
+      "id": "free",
+      "name": "Free",
+      "productId": "com.mealkind.free",
+      "price": 0,
+      "currency": "USD",
+      "period": "none",
+      "features": [
+        "basic_scan",
+        "daily_gap"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "pro_monthly",
+      "name": "MealKind Pro Monthly",
+      "productId": "com.mealkind.pro.monthly",
+      "price": 4.99,
+      "currency": "USD",
+      "period": "monthly",
+      "features": [
+        "macro_tracking",
+        "ai_chat",
+        "weekly_review"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "pro_yearly",
+      "name": "MealKind Pro Yearly",
+      "productId": "com.mealkind.pro.yearly",
+      "price": 39.99,
+      "currency": "USD",
+      "period": "yearly",
+      "features": [
+        "macro_tracking",
+        "ai_chat",
+        "weekly_review"
+      ],
+      "enabled": true
+    }
+  ],
+  "aiModels": [
+    {
+      "id": "vision_food_default",
+      "name": "Food Vision Default",
+      "provider": "openai-compatible",
+      "model": "gpt-4.1-mini",
+      "purpose": "food_analysis",
+      "temperature": 0.2,
+      "timeoutSeconds": 18,
+      "enabled": true
+    },
+    {
+      "id": "coach_chat_default",
+      "name": "Coach Chat Default",
+      "provider": "openai-compatible",
+      "model": "gpt-4.1-mini",
+      "purpose": "coach_chat",
+      "temperature": 0.5,
+      "timeoutSeconds": 20,
+      "enabled": true
+    }
+  ],
+  "settings": {
+    "aiProvider": "mock-json",
+    "maxImageBytes": 5242880,
+    "defaultLocale": "zh-Hans",
+    "maintenanceMode": false,
+    "registrationEnabled": true,
+    "accountDeletionEnabled": true,
+    "supportEmail": "support@mealkind.app",
+    "minimumSupportedAppVersion": "0.1.0"
+  },
+  "analysisLogs": [],
+  "systemLogs": [
+    {
+      "id": "evt_demo_001",
+      "level": "info",
+      "source": "backend",
+      "message": "MealKind backend initialized",
+      "createdAt": "2026-06-16T00:00:00Z"
+    },
+    {
+      "id": "evt_81ee32a1cdf0",
+      "level": "info",
+      "source": "admin",
+      "message": "Created user test-user@example.com",
+      "createdAt": "2026-06-16T09:00:13.783980Z"
+    },
+    {
+      "id": "evt_a6de31133955",
+      "level": "info",
+      "source": "admin",
+      "message": "Created issues record iss_85eb6fefee9c",
+      "createdAt": "2026-06-16T09:00:13.862415Z"
+    },
+    {
+      "id": "evt_8626e7c6ac70",
+      "level": "info",
+      "source": "admin",
+      "message": "Created notifications record ntf_5782bd71a886",
+      "createdAt": "2026-06-16T09:00:13.922852Z"
+    }
+  ],
+  "issues": [
+    {
+      "id": "iss_demo_001",
+      "title": "AI 分析结果偏保守",
+      "status": "open",
+      "severity": "medium",
+      "owner": "ops",
+      "createdAt": "2026-06-16T00:00:00Z",
+      "updatedAt": "2026-06-16T00:00:00Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "ntf_demo_001",
+      "title": "欢迎使用 MealKind",
+      "body": "后台通知中心已启用。",
+      "audience": "all",
+      "status": "draft",
+      "createdAt": "2026-06-16T00:00:00Z"
+    }
+  ]
+}

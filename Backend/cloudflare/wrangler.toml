@@ -1,0 +1,26 @@
+name = "mealkind-api"
+main = "src/index.js"
+compatibility_date = "2026-06-23"
+
+[vars]
+MEALKIND_ADMIN_USER = "admin"
+OSS_BUCKET = "mealkind"
+OSS_ENDPOINT = "oss-cn-hangzhou.aliyuncs.com"
+
+[[kv_namespaces]]
+binding = "MEALKIND_STORE"
+id = "c04ad1da6b724c08b720b184e33bdb10"
+
+[[routes]]
+pattern = "mefitai.fit"
+custom_domain = true
+
+[[routes]]
+pattern = "admin.mefitai.fit"
+custom_domain = true
+
+[assets]
+directory = "../public"
+binding = "ASSETS"
+run_worker_first = true
+html_handling = "none"
